@@ -26,9 +26,11 @@ type Position = {
   }
 }
 
+const turnPositionToPoint = (position: Position): Point => [position.coords.latitude, position.coords.longitude]
+
 export function MyMap() {
   const [type, setType] = useState("paper")
-  const [position, setPosition] = useState<Position>()
+  const [position, setPosition] = useState<Position>({ coords: { latitude: defaultCenter[0], longitude: defaultCenter[1] } })
   const [features, setFeatures] = useState<Array<FetureType>>([])
 
 
@@ -44,11 +46,16 @@ export function MyMap() {
       .then(data => setFeatures(data.features))
   }, [type])
 
-  const currentPositionPointType = position && [position.coords.latitude, position.coords.longitude]
+  const currentPositionPointType: Point = turnPositionToPoint(position)
 
   return (
     <>
-      <Map height={400} defaultCenter={(position ? currentPositionPointType : defaultCenter) as Point} defaultZoom={14}>
+      <Map
+        height={400}
+        defaultCenter={(position ? currentPositionPointType : defaultCenter) as Point}
+        defaultZoom={14}
+        center={currentPositionPointType}
+      >
         {(features || []).map(feature => (
           <Marker width={50} key={feature.id} anchor={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]} />
         ))}
@@ -56,8 +63,6 @@ export function MyMap() {
           <Marker width={50} color="#FF0000" anchor={currentPositionPointType as Point} />
         )}
       </Map>
-
-
         <label htmlFor="recycle">Choose a type:</label>
 
         <select
