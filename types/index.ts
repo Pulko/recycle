@@ -13,3 +13,12 @@ export type Position = {
     longitude: number,
   }
 }
+
+export type OptionType = (
+  "Papier" |
+  "Glas" |
+  "Leichtverpackungen" |
+  "Textil" |
+  "Elektrogeräte" |
+  "Recyclinghöfe"
+)

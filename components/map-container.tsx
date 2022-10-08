@@ -5,7 +5,7 @@ import { Point } from "pigeon-maps"
 import MapControls from './map-controls'
 import Credentials from './credentials'
 
-import { Position, FeatureType } from 'types'
+import { Position, FeatureType, OptionType } from 'types'
 
 import { turnPositionToPoint } from 'helpers/position'
 import { defaultError, options } from 'helpers/constants'
@@ -16,7 +16,7 @@ const Map = dynamic(() => import('components/map'), {
 })
 
 const MapLoader: React.FC = () => {
-  const [type, setType] = useState("")
+  const [type, setType] = useState<OptionType | "">("")
   const [error, setError] = useState("")
   const [position, setPosition] = useState<Position>()
   const [features, setFeatures] = useState<Array<FeatureType>>([])

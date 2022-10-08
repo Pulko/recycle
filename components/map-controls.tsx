@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Position } from 'types'
+import { OptionType, Position } from 'types'
 
 import { options } from 'helpers/constants'
 
+type OptionTypSelect = OptionType | ""
+
 type MapControlsProps = {
   setPosition: (position: Position) => void
-  setType: (type: string) => void
-  defaultType: string
+  setType: (type: OptionTypSelect) => void
+  defaultType: OptionTypSelect
   error: string
 }
 
@@ -34,7 +36,7 @@ const MapControls: React.FC<MapControlsProps> = (props) => {
           name="recycle"
           id="recycle"
           defaultValue={defaultType}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setType(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setType(e.target.value as OptionTypSelect)}
           className="p-1 rounded"
         >
           {Object.keys(options).map(name => (
