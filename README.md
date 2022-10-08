@@ -1,6 +1,6 @@
 # Abfall und Recycling Hamburg API Visualisation
 
-- **Problem**: It was always hard for me to find the useful map with recycling bins quicky
+- **Problem**: It was always hard for me to find the useful map with recycling bins quickly
 - **Tech**: NextJS, Abfall und Recycling Hamburg API, Geolocation API, TailwindCSS, Pigeon Maps
 - **Demo**: [Hamburg Recycling Application](https://www.recycle.pulko-app.com/)
 
