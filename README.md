@@ -1,34 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Abfall und Recycling Hamburg API Visaulisation
 
-## Getting Started
+- **Tech**: NextJS, Abfall und Recycling Hamburg API, Geolocation API, TailwindCSS, Pigeon Maps
+- **Demo**: [Hamburg Recycling Application](https://www.recycle.pulko-app.com/)
 
-First, run the development server:
+## Usage
+- Select preferred recycling type in selector (`Glas` selected on the screenshot below)
+- Request your location to navigate the map (`Aktueller Standort` button)
+- Browse the map
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="1440" alt="Screenshot 2022-10-08 at 15 34 21" src="https://user-images.githubusercontent.com/38206129/194710216-ac1d565f-49c6-4427-a15c-a809a2b5c59e.png">
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**API**: https://api.hamburg.de/datasets/v1/abfall_recycling/api#/
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
