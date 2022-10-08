@@ -42,9 +42,8 @@ const MapLoader: React.FC = () => {
         features={features}
         currentUserPosition={currentUserPosition}
       />
-      
 
-      <div className="py-3 px-6 md:px-24">
+      <div className="pb-3 px-6 md:px-24">
         <div className="flex md:flex-row flex-col justify-between grow">
           <MapControls
             setPosition={setPosition}
@@ -54,7 +53,7 @@ const MapLoader: React.FC = () => {
           />
         </div>
 
-        <div className="absolute bottom-10">
+        <div className="mt-5">
           <Credentials />
         </div>
       </div>

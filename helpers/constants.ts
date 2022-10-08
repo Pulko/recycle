@@ -4,6 +4,8 @@ export const defaultCenter: Point = [53.549294, 9.992907] // Hamburg city center
 
 export const defaultError: string = "Laden der Daten nicht möglich"
 
+export const controlsHeight: number = 250
+
 export const options: { [key: string]: string } = {
   Papier: 'abfall_recycling_1_papier',
   Glas: 'abfall_recycling_2_glas',

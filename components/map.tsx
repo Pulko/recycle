@@ -4,7 +4,7 @@ import { osm } from 'pigeon-maps/providers'
 
 import { FeatureType } from 'types'
 
-import { defaultCenter } from 'helpers/constants'
+import { controlsHeight, defaultCenter } from 'helpers/constants'
 
 type MapboxProps = {
   features: Array<FeatureType>
@@ -14,7 +14,7 @@ type MapboxProps = {
 const Mapbox: React.FC<MapboxProps> = (props) => (
   <div className="rounded p-3 mb-auto">
     <Map
-      height={window.screen.availHeight * 2 / 3}
+      height={window.screen.availHeight - controlsHeight}
       provider={osm}
       defaultCenter={defaultCenter}
       defaultZoom={14}

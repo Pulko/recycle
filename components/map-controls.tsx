@@ -60,7 +60,7 @@ const MapControls: React.FC<MapControlsProps> = (props) => {
 
       <button
         onClick={checkGeoPosition}
-        className="whitespace-nowrap mt-8 md:mt-0 bg-emerald-900 text-white px-4 py-2 rounded"
+        className="whitespace-nowrap mt-4 md:mt-0 bg-emerald-900 text-white px-4 py-2 rounded"
       >
         Aktueller Standort
       </button>
