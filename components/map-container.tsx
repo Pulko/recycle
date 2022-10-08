@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Point } from "pigeon-maps"
 
+import MapControls from './map-controls'
+import Credentials from './credentials'
+
 import { Position, FeatureType } from 'types'
 
-import { turnPositionToPoint, turnPointToPosition } from 'helpers/position'
-import { defaultCenter, options } from 'helpers/constants'
+import { turnPositionToPoint } from 'helpers/position'
+import { defaultError, options } from 'helpers/constants'
 import { getApiUrl } from 'helpers/api'
 
 const Map = dynamic(() => import('components/map'), {
@@ -13,10 +16,10 @@ const Map = dynamic(() => import('components/map'), {
 })
 
 const MapLoader: React.FC = () => {
-  const [type, setType] = useState("paper")
-  const [position, setPosition] = useState<Position>(() => turnPointToPosition(defaultCenter))
-  const [features, setFeatures] = useState<Array<FeatureType>>([])
+  const [type, setType] = useState("")
   const [error, setError] = useState("")
+  const [position, setPosition] = useState<Position>()
+  const [features, setFeatures] = useState<Array<FeatureType>>([])
 
   useEffect(() => {
     if (type) {
@@ -25,48 +28,34 @@ const MapLoader: React.FC = () => {
       fetch(apiUrl)
         .then(res => res.json())
         .then(data => setFeatures(data.features))
-        .catch((error) => setError(error || "Laden der Daten nicht möglich"))
+        .catch((error) => setError(error || defaultError))
+    } else {
+      setFeatures([])
     }
   }, [type])
 
-  const checkGeoPosition = () => {
-    navigator.geolocation.getCurrentPosition((position: Position) => {
-      setPosition(position)
-    });
-  }
-
-  const currentUserPosition: Point = turnPositionToPoint(position)
+  const currentUserPosition: Point | undefined = position ? turnPositionToPoint(position) : undefined
 
   return (
     <div>
       <Map
         features={features}
-        center={currentUserPosition}
         currentUserPosition={currentUserPosition}
       />
+      
 
-      <div className="p-6">
-        <label htmlFor="recycle">Recyclingprodukten:</label>
+      <div className="py-3 px-6 md:px-24">
+        <div className="flex md:flex-row flex-col justify-between grow">
+          <MapControls
+            setPosition={setPosition}
+            defaultType={type}
+            setType={setType}
+            error={error}
+          />
+        </div>
 
-        <select
-          name="recycle"
-          id="recycle"
-          defaultValue="glas"
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setType(e.target.value)}
-        >
-          {Object.keys(options).map(name => (
-            <option key={name} value={name}>
-              {name}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={checkGeoPosition}>
-          Aktueller Standort
-        </button>
-
-        <div>
-          {error}
+        <div className="absolute bottom-10">
+          <Credentials />
         </div>
       </div>
     </div>
