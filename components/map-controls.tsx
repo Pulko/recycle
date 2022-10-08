@@ -28,7 +28,7 @@ const MapControls: React.FC<MapControlsProps> = (props) => {
   return (
     <>
       <div className="whitespace-nowrap">
-        <label htmlFor="recycle" className="text-emerald-200 mr-2">Recyclingprodukten:</label>
+        <label htmlFor="recycle" className="text-emerald-200 mr-2">Recycling-Typ:</label>
 
         <select
           name="recycle"
