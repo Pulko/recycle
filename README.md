@@ -1,4 +1,4 @@
-# Abfall und Recycling Hamburg API Visaulisation
+# Abfall und Recycling Hamburg API Visualisation
 
 - **Problem**: It was always hard for me to find the useful map with recycling bins quicky
 - **Tech**: NextJS, Abfall und Recycling Hamburg API, Geolocation API, TailwindCSS, Pigeon Maps
