@@ -2,13 +2,14 @@ import React from 'react'
 import { Map, Marker, Point } from "pigeon-maps"
 import { osm } from 'pigeon-maps/providers'
 
-import { FeatureType } from 'types'
+import { FeatureType, OptionType } from 'types'
 
-import { controlsHeight, defaultCenter } from 'helpers/constants'
+import { colorOptions, controlsHeight, defaultCenter } from 'helpers/constants'
 
 type MapboxProps = {
   features: Array<FeatureType>
   currentUserPosition: Point | undefined
+  type: OptionType | ""
 }
 
 const Mapbox: React.FC<MapboxProps> = (props) => (
@@ -24,7 +25,7 @@ const Mapbox: React.FC<MapboxProps> = (props) => (
       twoFingerDrag={false}
     >
       {(props.features || []).map(feature => (
-        <Marker width={50} key={feature.id} anchor={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]} />
+        <Marker width={40} key={feature.id} color={props.type ? colorOptions[props.type] : undefined} anchor={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]} />
       ))}
       {props.currentUserPosition && (
         <Marker width={50} color="#FF0000" anchor={props.currentUserPosition as Point} />
