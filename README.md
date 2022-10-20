@@ -7,10 +7,10 @@
 ## Usage
 - Select preferred recycling type in selector (`Glas` selected on the screenshot below)
 - Request your location to navigate the map (`Aktueller Standort` button)
+- Or set desired postcode into another input field
 - Browse the map
 
-
-<img width="1440" alt="Screenshot 2022-10-08 at 15 34 21" src="https://user-images.githubusercontent.com/38206129/194710216-ac1d565f-49c6-4427-a15c-a809a2b5c59e.png">
+<img width="1400" alt="Screenshot 2022-10-21 at 01 06 54" src="https://user-images.githubusercontent.com/38206129/197075608-5cc096c8-21e8-4ac7-87e0-2f0135b44aa2.png">
 
 
 **API**: https://api.hamburg.de/datasets/v1/abfall_recycling/api#/
