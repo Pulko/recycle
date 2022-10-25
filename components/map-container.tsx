@@ -26,8 +26,7 @@ const MapLoader: React.FC = () => {
     if (type) {
       const apiUrl = getApiUrlBy(options[type], validatedPostcode)
 
-      fetchData(apiUrl, setError)
-        .then((data) => setFeatures(data?.features || []))
+      fetchData(apiUrl, { onReject: setError, onResolve: setFeatures })
     } else if (validatedPostcode) {
       setError("Stellen Sie bitte den Recyclingtyp ein")
     } else {
